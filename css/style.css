@@ -491,9 +491,38 @@ h3 {
               box-shadow 0.35s ease;
 }
 
+.category-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 240, 231, 0.88) 0%,
+    rgba(245, 240, 231, 0.08) 32%,
+    rgba(245, 240, 231, 0.1) 55%,
+    rgba(245, 240, 231, 0.94) 100%
+  );
+  pointer-events: none;
+}
+
+.category-photo {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
 .category-card:hover {
   transform: translateY(-9px);
   box-shadow: var(--sombra);
+}
+
+.category-card:hover .category-photo {
+  transform: scale(1.06);
 }
 
 .category-facial {
@@ -520,19 +549,9 @@ h3 {
   letter-spacing: 1px;
 }
 
-.category-symbol {
-  align-self: center;
-  color: var(--verde);
-  font-size: clamp(75px, 8vw, 145px);
-  line-height: 1;
-  transition: transform 0.5s ease;
-}
-
-.category-card:hover .category-symbol {
-  transform: rotate(16deg) scale(1.13);
-}
-
 .category-bottom {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: end;
