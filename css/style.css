@@ -1430,9 +1430,9 @@ h3 {
 
 /* Selector de tratamiento antes de abrir la agenda */
 .booking-dialog {
-  width: min(650px, calc(100% - 28px));
+  width: min(1000px, calc(100% - 28px));
   max-width: none;
-  max-height: min(88vh, 760px);
+  max-height: min(94vh, 900px);
   margin: auto;
   padding: 0;
   overflow: auto;
@@ -1553,6 +1553,50 @@ h3 {
 .booking-continue[aria-disabled="true"] {
   opacity: 0.45;
   pointer-events: none;
+}
+
+.booking-calendar[hidden],
+.booking-options[hidden],
+.booking-intro[hidden],
+.booking-selection[hidden],
+.booking-continue[hidden] {
+  display: none;
+}
+
+.booking-calendar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.booking-selection-summary {
+  color: var(--verde);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.booking-back {
+  padding: 9px 12px;
+  border: 1px solid rgba(38, 61, 53, 0.3);
+  border-radius: 30px;
+  background: var(--blanco);
+  color: var(--verde);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.booking-calendar-frame {
+  display: block;
+  width: 100%;
+  height: min(68vh, 680px);
+  min-height: 460px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--blanco);
 }
 
 /* 15. ANIMACIONES */
@@ -1793,6 +1837,11 @@ h3 {
 
   .booking-continue {
     width: 100%;
+  }
+
+  .booking-calendar-frame {
+    height: 62vh;
+    min-height: 430px;
   }
 
   .hero-content {

@@ -34,12 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (bookingDialog && typeof bookingDialog.showModal === "function") {
     const bookingTriggers = document.querySelectorAll(".booking-trigger");
-    const bookingOptions = bookingDialog.querySelectorAll("[data-booking-service]");
+    const bookingOptions = bookingDialog.querySelectorAll(
+      "[data-booking-service]",
+    );
     const bookingContinue = bookingDialog.querySelector(".booking-continue");
     const bookingSelection = bookingDialog.querySelector(".booking-selection");
+    const bookingIntro = bookingDialog.querySelector(".booking-intro");
+    const bookingCalendar = bookingDialog.querySelector(".booking-calendar");
+    const bookingCalendarFrame = bookingDialog.querySelector(".booking-calendar-frame");
+    const bookingCalendarSummary = bookingDialog.querySelector(".booking-selection-summary");
+    const bookingBack = bookingDialog.querySelector(".booking-back");
+    const bookingTitle = bookingDialog.querySelector("#booking-title");
+
+    function mostrarSelectorTratamientos() {
+      bookingCalendar.hidden = true;
+      bookingDialog.querySelector(".booking-options").hidden = false;
+      bookingIntro.hidden = false;
+      bookingSelection.hidden = false;
+      bookingContinue.hidden = false;
+      bookingTitle.innerHTML = "¿Qué tratamiento <em>quieres elegir?</em>";
+    }
 
     bookingTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => bookingDialog.showModal());
+      trigger.addEventListener("click", () => {
+        mostrarSelectorTratamientos();
+        bookingDialog.showModal();
+      });
     });
 
     bookingOptions.forEach((option) => {
@@ -51,11 +71,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         bookingContinue.removeAttribute("aria-disabled");
-        bookingContinue.removeAttribute("tabindex");
         bookingContinue.dataset.selectedService = option.dataset.bookingService;
         bookingSelection.textContent = `Tratamiento elegido: ${option.dataset.bookingService}`;
       });
     });
+
+    bookingContinue.addEventListener("click", () => {
+      if (bookingContinue.getAttribute("aria-disabled") === "true") return;
+
+      const selectedService = bookingContinue.dataset.selectedService;
+      bookingDialog.querySelector(".booking-options").hidden = true;
+      bookingIntro.hidden = true;
+      bookingSelection.hidden = true;
+      bookingContinue.hidden = true;
+      bookingCalendarSummary.textContent = `Tratamiento elegido: ${selectedService}`;
+      bookingTitle.textContent = "Elige fecha y hora";
+      bookingCalendar.hidden = false;
+
+      if (!bookingCalendarFrame.src) {
+        bookingCalendarFrame.src = bookingCalendarFrame.dataset.src;
+      }
+    });
+
+    bookingBack.addEventListener("click", mostrarSelectorTratamientos);
   }
 
   /* ==========================================

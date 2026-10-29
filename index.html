@@ -760,8 +760,15 @@
         <button type="button" class="booking-option" data-booking-service="Plasma capilar">Plasma capilar</button>
       </div>
       <p class="booking-selection" aria-live="polite"></p>
-      <p class="booking-note">Google Calendar abrirá la agenda general; la opción marcada aquí no se envía automáticamente. Confirma el tratamiento con el centro después de elegir día y hora.</p>
-      <a class="contact-button booking-continue" href="https://calendar.app.google/KErqa8nbJsi5siHv7" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">CONTINUAR A FECHA Y HORA ↗</a>
+      <button class="contact-button booking-continue" type="button" aria-disabled="true">VER FECHAS Y HORAS ↗</button>
+      <section class="booking-calendar" hidden aria-label="Agenda de Google Calendar">
+        <div class="booking-calendar-heading">
+          <p class="booking-selection-summary" aria-live="polite"></p>
+          <button class="booking-back" type="button">← CAMBIAR TRATAMIENTO</button>
+        </div>
+        <p class="booking-note">El calendario se muestra aquí mismo. Al reservar, confirma el tratamiento elegido con el centro.</p>
+        <iframe class="booking-calendar-frame" title="Elige fecha y hora para tu cita en Rueda Centro de Estética" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3S52jSGYuNfyW8oTYroVx4BclpUV9WbUfD-1l9Cv2zjPcSUpNXtcYg6RP3Rdpkz-06gwPahiis?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+      </section>
     </form>
   </dialog>
 
