@@ -22,6 +22,7 @@
   --borde: 1px solid var(--verde);
   --radio: 18px;
   --sombra: 6px 7px 0 var(--verde);
+  --sombra-suave: 0 18px 42px rgba(38, 61, 53, 0.12);
 }
 
 /* 02. RESET */
@@ -108,8 +109,9 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: var(--marfil);
+  background: rgba(245, 240, 231, 0.97);
   border-bottom: 1px solid #D9D1C6;
+  box-shadow: 0 8px 24px rgba(38, 61, 53, 0.045);
   position: relative;
   z-index: 20;
 }
@@ -191,9 +193,12 @@ h3 {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 700px;
   overflow: hidden;
+  background: var(--marfil);
 }
 
 .hero-content {
+  position: relative;
+  isolation: isolate;
   padding: 75px 8% 65px 12%;
   background: linear-gradient(135deg, #FCF9F3 0%, var(--marfil) 72%, #EFE5D6 100%);
   display: flex;
@@ -201,6 +206,19 @@ h3 {
   align-items: flex-start;
   justify-content: center;
   min-width: 0;
+}
+
+.hero-content::before {
+  position: absolute;
+  z-index: -1;
+  top: 11%;
+  right: 7%;
+  width: clamp(110px, 15vw, 220px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(198, 142, 112, 0.3);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
 }
 
 .hero-label {
@@ -271,6 +289,7 @@ h3 {
   transition: transform 0.3s ease,
               background 0.3s ease,
               box-shadow 0.3s ease;
+  box-shadow: 0 8px 18px rgba(38, 61, 53, 0.12);
 }
 
 .hero-cta:hover,
@@ -524,7 +543,8 @@ h3 {
   border-radius: var(--radio);
   color: var(--verde);
   transition: transform 0.35s ease,
-              box-shadow 0.35s ease;
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 
 .category-card::after {
@@ -549,16 +569,19 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.55s ease;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+              filter 0.5s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-9px);
-  box-shadow: var(--sombra);
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-suave);
+  border-color: var(--cobre);
 }
 
 .category-card:hover .category-photo {
-  transform: scale(1.06);
+  transform: scale(1.045);
+  filter: saturate(1.06);
 }
 
 .category-facial {
@@ -674,12 +697,14 @@ h3 {
   border: var(--borde);
   border-radius: var(--radio);
   transition: transform 0.35s ease,
-              box-shadow 0.35s ease;
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 
 .treatment-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--sombra);
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-suave);
+  border-color: var(--cobre);
 }
 
 .treatment-card[hidden] {
@@ -731,6 +756,11 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.treatment-card:hover .treatment-photo {
+  transform: scale(1.035);
 }
 
 .treatment-card:hover .treatment-image::before {
@@ -817,6 +847,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 610px;
+  overflow: hidden;
 }
 
 .feature-visual {
@@ -833,6 +864,11 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: 50% 48%;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.feature-visual:hover .feature-photo {
+  transform: scale(1.025);
 }
 
 .feature-visual::after {
@@ -859,6 +895,8 @@ h3 {
 }
 
 .feature-content {
+  position: relative;
+  isolation: isolate;
   padding: 75px 10%;
   display: flex;
   flex-direction: column;
@@ -866,6 +904,19 @@ h3 {
   justify-content: center;
   background: linear-gradient(135deg, #263D35 0%, #314B40 55%, #405849 100%);
   color: var(--marfil);
+}
+
+.feature-content::after {
+  position: absolute;
+  z-index: -1;
+  right: -92px;
+  bottom: -145px;
+  width: 310px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(232, 191, 168, 0.25);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
 }
 
 .feature-content > span {
@@ -952,6 +1003,7 @@ h3 {
   border: var(--borde);
   border-radius: var(--radio);
   background: var(--arena);
+  box-shadow: 12px 12px 0 rgba(198, 142, 112, 0.32);
 }
 
 .specialist-photo {
@@ -1105,7 +1157,8 @@ h3 {
   border-radius: var(--radio);
   background: var(--blanco);
   transition: transform 0.35s ease,
-              box-shadow 0.35s ease;
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 
 .step-card:nth-child(2) {
@@ -1117,8 +1170,9 @@ h3 {
 }
 
 .step-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--sombra);
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-suave);
+  border-color: var(--cobre);
 }
 
 .step-card-image {
@@ -1179,6 +1233,16 @@ h3 {
   justify-content: center;
   text-align: center;
   background: linear-gradient(135deg, #DCE4D6 0%, #A9B79E 48%, #8F9F89 100%);
+}
+
+.contact-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 22px;
+  border: 1px solid rgba(38, 61, 53, 0.18);
+  border-radius: 50% 18px 50% 18px;
+  content: "";
+  pointer-events: none;
 }
 
 .contact-section > span {
@@ -1243,6 +1307,7 @@ h3 {
   padding: 70px 6% 25px;
   background: linear-gradient(115deg, #263D35 0%, #31493D 55%, #20362F 100%);
   color: var(--marfil);
+  border-top: 4px solid var(--cobre);
 }
 
 .footer-logo {
@@ -1522,6 +1587,7 @@ h3 {
   }
 
   .hero-content {
+    overflow: hidden;
     padding: 30px 6% 24px;
     background: linear-gradient(180deg, #FCF9F3 0%, #F7F2E9 100%);
   }
@@ -1636,6 +1702,11 @@ h3 {
     border-radius: 14px;
   }
 
+  .category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(38, 61, 53, 0.12);
+  }
+
   .category-photo {
     object-position: center 42%;
   }
@@ -1712,6 +1783,12 @@ h3 {
     background: linear-gradient(180deg, #263D35 0%, #31493D 100%);
   }
 
+  .feature-content::after {
+    right: -150px;
+    bottom: -190px;
+    width: 250px;
+  }
+
   .feature-content > span {
     font-size: 9px;
   }
@@ -1747,6 +1824,7 @@ h3 {
   .specialist-photo-frame {
     min-height: 0;
     aspect-ratio: 1;
+    box-shadow: 7px 7px 0 rgba(198, 142, 112, 0.32);
   }
 
   .specialist-content {
@@ -1917,6 +1995,12 @@ h3 {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .category-photo,
+  .treatment-photo,
+  .feature-photo {
+    transition: none;
   }
 }
 
