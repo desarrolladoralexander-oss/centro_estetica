@@ -7,6 +7,26 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ==========================================
+     00. CONTACTO OPCIONAL POR WHATSAPP
+  ========================================== */
+
+  const contactActions = document.querySelector("[data-whatsapp-number]");
+  const rawWhatsappNumber = contactActions?.dataset.whatsappNumber || "";
+  const whatsappNumber = rawWhatsappNumber.replace(/\D/g, "");
+
+  if (contactActions && whatsappNumber) {
+    const whatsappLink = document.createElement("a");
+
+    whatsappLink.className = "contact-button";
+    whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+    whatsappLink.target = "_blank";
+    whatsappLink.rel = "noopener noreferrer";
+    whatsappLink.textContent = "ESCRÍBENOS POR WHATSAPP ↗";
+
+    contactActions.append(whatsappLink);
+  }
+
+  /* ==========================================
      01. MENÚ MÓVIL
   ========================================== */
 
