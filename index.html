@@ -19,6 +19,12 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
+  <link
+    rel="preload"
+    as="image"
+    href="assets/images/galeria/especialista-hero.webp"
+    fetchpriority="high">
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -91,9 +97,8 @@
         </h1>
 
         <p class="hero-description">
-          Dedícate un momento especial. Descubre nuestros
-          tratamientos faciales, corporales, capilares y
-          de bienestar.
+          Descubre nuestros tratamientos faciales, corporales,
+          capilares y de bienestar en Rueda Centro de Estética.
         </p>
 
         <a href="#servicios" class="hero-cta">
@@ -109,20 +114,14 @@
       </div>
 
       <div class="hero-image">
+        <img
+          class="hero-photo"
+          src="assets/images/galeria/especialista-hero.webp"
+          alt="Especialista de Rueda sentada en un sillón"
+          fetchpriority="high"
+          decoding="async">
 
-        <div class="hero-orbit"></div>
-        <div class="hero-orbit-inner"></div>
-
-        <div class="hero-photo-placeholder">
-          <span>RUEDA</span>
-
-          <strong>
-            Belleza que<br>
-            te hace sentir bien.
-          </strong>
-
-          <small>CENTRO DE ESTÉTICA</small>
-        </div>
+        <span class="hero-image-caption">UN ESPACIO PARA TI</span>
 
         <div class="hero-sparkle hero-sparkle-one">✳</div>
         <div class="hero-sparkle hero-sparkle-two">✦</div>
@@ -140,7 +139,7 @@
     <!-- ===================================
          FRANJA DECORATIVA
     ==================================== -->
-    <div class="marquee" aria-label="Belleza y bienestar">
+    <div class="marquee" aria-hidden="true">
       <div class="marquee-track" aria-hidden="true">
         ✳ BELLEZA ✳ BIENESTAR ✳ CUIDADO PERSONAL
         ✳ RUEDA ✳ TU MOMENTO ✳ BELLEZA ✳
@@ -316,7 +315,7 @@
           data-category="corporales">
 
           <div class="treatment-image image-corporal">
-            <span class="treatment-icon">✳</span>
+            <span class="treatment-icon" aria-hidden="true">✳</span>
             <span class="treatment-tag">CORPORAL</span>
           </div>
 
@@ -334,7 +333,7 @@
           data-category="corporales">
 
           <div class="treatment-image image-corporal">
-            <span class="treatment-icon">✦</span>
+            <span class="treatment-icon" aria-hidden="true">✦</span>
             <span class="treatment-tag">CORPORAL</span>
           </div>
 
@@ -352,7 +351,7 @@
           data-category="corporales">
 
           <div class="treatment-image image-corporal">
-            <span class="treatment-icon">✿</span>
+            <span class="treatment-icon" aria-hidden="true">✿</span>
             <span class="treatment-tag">CORPORAL</span>
           </div>
 
@@ -370,7 +369,7 @@
           data-category="bienestar">
 
           <div class="treatment-image image-bienestar">
-            <span class="treatment-icon">☼</span>
+            <span class="treatment-icon" aria-hidden="true">☼</span>
             <span class="treatment-tag">BIENESTAR</span>
           </div>
 
@@ -388,7 +387,7 @@
           data-category="bienestar">
 
           <div class="treatment-image image-bienestar">
-            <span class="treatment-icon">❋</span>
+            <span class="treatment-icon" aria-hidden="true">❋</span>
             <span class="treatment-tag">BIENESTAR</span>
           </div>
 
@@ -406,7 +405,7 @@
           data-category="corporales">
 
           <div class="treatment-image image-corporal">
-            <span class="treatment-icon">✺</span>
+            <span class="treatment-icon" aria-hidden="true">✺</span>
             <span class="treatment-tag">CORPORAL</span>
           </div>
 
@@ -424,7 +423,7 @@
           data-category="faciales">
 
           <div class="treatment-image image-facial">
-            <span class="treatment-icon">✿</span>
+            <span class="treatment-icon" aria-hidden="true">✿</span>
             <span class="treatment-tag">FACIAL</span>
           </div>
 
@@ -442,7 +441,7 @@
           data-category="faciales">
 
           <div class="treatment-image image-facial">
-            <span class="treatment-icon">✧</span>
+            <span class="treatment-icon" aria-hidden="true">✧</span>
             <span class="treatment-tag">FACIAL</span>
           </div>
 
@@ -460,7 +459,7 @@
           data-category="faciales">
 
           <div class="treatment-image image-facial">
-            <span class="treatment-icon">✳</span>
+            <span class="treatment-icon" aria-hidden="true">✳</span>
             <span class="treatment-tag">FACIAL</span>
           </div>
 
@@ -478,7 +477,7 @@
           data-category="capilares">
 
           <div class="treatment-image image-capilar">
-            <span class="treatment-icon">✦</span>
+            <span class="treatment-icon" aria-hidden="true">✦</span>
             <span class="treatment-tag">CAPILAR</span>
           </div>
 
@@ -501,8 +500,13 @@
     <section class="feature-section">
 
       <div class="feature-visual">
-        <div class="feature-circle"></div>
-        <span class="feature-symbol">✿</span>
+        <img
+          class="feature-photo"
+          src="assets/images/galeria/tratamiento-real.webp"
+          alt="Especialista de Rueda realizando un tratamiento corporal"
+          loading="lazy"
+          decoding="async">
+        <span class="feature-photo-label">CUIDADO REAL, CERCA DE TI</span>
       </div>
 
       <div class="feature-content">
@@ -522,8 +526,8 @@
           de cuidado personal.
         </p>
 
-        <a href="#contacto" class="feature-button">
-          CONOCE MÁS ↗
+        <a href="#servicios" class="feature-button">
+          EXPLORAR TRATAMIENTOS ↗
         </a>
 
       </div>
@@ -531,50 +535,45 @@
     </section>
 
     <!-- ===================================
-         05. SOBRE NOSOTROS
+         05. SOBRE LA ESPECIALISTA
     ==================================== -->
     <section class="about-section" id="nosotros">
 
       <div class="section-topline">
-        <span>04 / SOBRE RUEDA</span>
-        <span>CENTRO DE ESTÉTICA</span>
+        <span>04 / SOBRE LA ESPECIALISTA</span>
+        <span>RUEDA CENTRO DE ESTÉTICA</span>
       </div>
 
-      <div class="section-heading">
-        <h2>
-          TU ESPACIO
-          <span>DE BIENESTAR.</span>
-        </h2>
+      <div class="specialist-grid">
+        <figure class="specialist-photo-frame">
+          <img
+            class="specialist-photo"
+            src="assets/images/galeria/especialista-certificados.webp"
+            alt="Especialista de Rueda frente a diplomas enmarcados"
+            loading="lazy"
+            decoding="async">
+          <figcaption>DETRÁS DE CADA CUIDADO</figcaption>
+        </figure>
 
-        <p>
-          Conoce nuestros servicios y encuentra
-          el momento para dedicarte a ti.
-        </p>
-      </div>
+        <div class="specialist-content">
+          <span class="specialist-eyebrow">QUIÉN TE ACOMPAÑA</span>
+          <h2>DETRÁS DE CADA CUIDADO.</h2>
+          <h3>BELLEZA CON UN TOQUE HUMANO.</h3>
 
-      <div class="about-grid">
+          <p>
+            En Rueda encontrarás una atención cercana y un espacio
+            para conversar sobre el cuidado que buscas. La especialista
+            te acompaña a conocer las opciones disponibles y a resolver
+            tus dudas antes de elegir.
+          </p>
 
-        <div class="about-card">
-          <span>01</span>
-          <div class="about-symbol">✿</div>
-          <h3>CUIDADO PERSONAL</h3>
-          <p>Opciones faciales, corporales y capilares.</p>
+          <ul class="specialist-areas" aria-label="Áreas de cuidado en Rueda">
+            <li><span>01</span> Cuidado facial</li>
+            <li><span>02</span> Cuidado corporal</li>
+            <li><span>03</span> Bienestar</li>
+            <li><span>04</span> Cuidado capilar</li>
+          </ul>
         </div>
-
-        <div class="about-card">
-          <span>02</span>
-          <div class="about-symbol">☼</div>
-          <h3>BIENESTAR</h3>
-          <p>Un espacio para dedicarte tiempo.</p>
-        </div>
-
-        <div class="about-card">
-          <span>03</span>
-          <div class="about-symbol">✦</div>
-          <h3>ATENCIÓN</h3>
-          <p>Consulta qué tratamiento puede ser adecuado para ti.</p>
-        </div>
-
       </div>
 
     </section>
@@ -660,13 +659,14 @@
         resolver tus dudas y consultar disponibilidad.
       </p>
 
-      <a
-        href="https://www.instagram.com/rueda_centrodeestetica/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="contact-button">
-        ESCRÍBENOS POR INSTAGRAM ↗
-      </a>
+      <!-- Añadir aquí solo el número real confirmado, con código de país. -->
+        <a
+          href="https://www.instagram.com/rueda_centrodeestetica/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-button">
+          ESCRÍBENOS POR INSTAGRAM ↗
+        </a>
 
       <div class="contact-decoration left">✳</div>
       <div class="contact-decoration right">✦</div>
