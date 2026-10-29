@@ -437,3 +437,155 @@ h3 {
 }
 
 /* 07. ELEMENTOS COMPARTIDOS */
+
+.categories-section,
+.treatments-section,
+.about-section,
+.steps-section {
+  padding: 95px 6% 110px;
+}
+
+.section-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 13px;
+  border-top: 1px solid var(--verde);
+  color: var(--verde);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 45px;
+  margin: 35px 0 45px;
+}
+
+.section-heading h2 {
+  max-width: 800px;
+  color: var(--verde);
+  font-size: clamp(39px, 5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 1.05;
+}
+
+.section-heading h2 span {
+  display: block;
+  color: var(--cobre);
+}
+
+.section-heading p {
+  max-width: 285px;
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 08. TARJETAS DE CATEGORÍAS */
+
+.categories-section {
+  background: #FCF9F3;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.category-card {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: var(--borde);
+  border-radius: var(--radio);
+  color: var(--verde);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-9px);
+  box-shadow: var(--sombra);
+}
+
+.category-facial {
+  background: var(--arena);
+}
+
+.category-corporal {
+  background: var(--salvia);
+}
+
+.category-bienestar {
+  background: var(--cobre-claro);
+}
+
+.category-capilar {
+  background: var(--salvia-clara);
+}
+
+.category-number {
+  position: relative;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.category-symbol {
+  align-self: center;
+  color: var(--verde);
+  font-size: clamp(75px, 8vw, 145px);
+  line-height: 1;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-symbol {
+  transform: rotate(16deg) scale(1.13);
+}
+
+.category-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 10px;
+}
+
+.category-bottom h3 {
+  font-size: clamp(19px, 2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+}
+
+.category-arrow {
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: 50%;
+  font-size: 20px;
+  transition: transform 0.3s ease,
+              background 0.3s ease;
+}
+
+.category-card:hover .category-arrow {
+  background: var(--verde);
+  color: var(--blanco);
+  transform: rotate(45deg);
+}
+
+/* 09. TRATAMIENTOS */
