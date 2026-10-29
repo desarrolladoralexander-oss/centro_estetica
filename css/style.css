@@ -1150,3 +1150,121 @@ h3 {
 }
 
 /* 16. RESPONSIVE — PANTALLAS MEDIANAS */
+
+@media (max-width: 1150px) {
+  .nav {
+    gap: 15px;
+  }
+
+  .nav a {
+    font-size: 9px;
+  }
+
+  .header {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 5vw, 78px);
+    letter-spacing: -3px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(40px, 5vw, 65px);
+  }
+}
+
+/* 17. RESPONSIVE — TABLET */
+
+@media (max-width: 900px) {
+  .header {
+    gap: 14px;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 25px 6%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--marfil);
+    border-bottom: var(--borde);
+    box-shadow: 0 15px 25px #263D3515;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 75px 7%;
+  }
+
+  .hero-title {
+    font-size: clamp(55px, 9vw, 85px);
+  }
+
+  .hero-image {
+    min-height: 520px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .treatments-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section-heading p {
+    max-width: 480px;
+  }
+
+  .feature-section {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-content {
+    min-height: 470px;
+    padding: 70px 7%;
+  }
+
+  .about-grid,
+  .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-social {
+    text-align: left;
+  }
+}
+
+/* 18. RESPONSIVE — CELULARES */
