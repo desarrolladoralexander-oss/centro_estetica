@@ -1039,3 +1039,68 @@ h3 {
 }
 
 /* 14. FOOTER */
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 45px;
+  padding: 70px 6% 25px;
+  background: var(--verde);
+  color: var(--marfil);
+}
+
+.footer-logo {
+  font-family: "Manrope", sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+
+.footer-brand p {
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.footer-links a,
+.footer-social a {
+  font-size: 12px;
+  font-weight: 700;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: var(--cobre-claro);
+}
+
+.footer-social {
+  text-align: right;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #FFFFFF45;
+}
+
+.footer-bottom p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 15. ANIMACIONES */
