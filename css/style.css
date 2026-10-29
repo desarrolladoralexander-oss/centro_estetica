@@ -534,10 +534,10 @@ h3 {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(245, 240, 231, 0.88) 0%,
-    rgba(245, 240, 231, 0.08) 32%,
-    rgba(245, 240, 231, 0.1) 55%,
-    rgba(245, 240, 231, 0.94) 100%
+    rgba(245, 240, 231, 0.94) 0%,
+    rgba(245, 240, 231, 0.3) 30%,
+    rgba(38, 61, 53, 0.12) 58%,
+    rgba(245, 240, 231, 0.97) 100%
   );
   pointer-events: none;
 }
@@ -583,6 +583,7 @@ h3 {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
+  text-shadow: 0 1px 8px rgba(245, 240, 231, 0.8);
 }
 
 .category-bottom {
@@ -1521,7 +1522,7 @@ h3 {
   }
 
   .hero-content {
-    padding: 38px 6% 30px;
+    padding: 30px 6% 24px;
     background: linear-gradient(180deg, #FCF9F3 0%, #F7F2E9 100%);
   }
 
@@ -1531,8 +1532,8 @@ h3 {
   }
 
   .hero-title {
-    margin: 22px 0 18px;
-    font-size: clamp(40px, 10vw, 56px);
+    margin: 18px 0 15px;
+    font-size: clamp(37px, 9.6vw, 50px);
     letter-spacing: -2px;
     line-height: 0.98;
     overflow-wrap: normal;
@@ -1540,7 +1541,7 @@ h3 {
 
   .hero-description {
     max-width: 36ch;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     font-size: 14px;
     line-height: 1.65;
   }
@@ -1552,7 +1553,7 @@ h3 {
   }
 
   .hero-benefits {
-    margin-top: 25px;
+    margin-top: 18px;
   }
 
   .hero-benefit,
@@ -1568,8 +1569,8 @@ h3 {
 
   .hero-image {
     min-height: 0;
-    height: min(112vw, 470px);
-    max-height: 470px;
+    height: min(100vw, 410px);
+    max-height: 410px;
   }
 
   .hero-sticker {
@@ -1635,6 +1636,20 @@ h3 {
     border-radius: 14px;
   }
 
+  .category-photo {
+    object-position: center 42%;
+  }
+
+  .category-card::after {
+    background: linear-gradient(
+      180deg,
+      rgba(245, 240, 231, 0.97) 0%,
+      rgba(245, 240, 231, 0.35) 34%,
+      rgba(38, 61, 53, 0.12) 55%,
+      rgba(245, 240, 231, 0.98) 100%
+    );
+  }
+
   .category-number {
     font-size: 8px;
   }
@@ -1644,7 +1659,7 @@ h3 {
   }
 
   .category-bottom h3 {
-    font-size: 17px;
+    font-size: clamp(14px, 4.2vw, 17px);
     letter-spacing: -0.8px;
   }
 
@@ -1669,7 +1684,13 @@ h3 {
   }
 
   .treatment-image {
-    height: 260px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .treatment-photo {
+    object-fit: cover;
+    object-position: center;
   }
 
   .treatment-info {
@@ -1681,20 +1702,36 @@ h3 {
   }
 
   .feature-visual {
-    min-height: 350px;
+    min-height: 0;
+    height: min(78vw, 310px);
   }
 
   .feature-content {
     min-height: 0;
-    padding: 48px 6%;
+    padding: 38px 6%;
     background: linear-gradient(180deg, #263D35 0%, #31493D 100%);
   }
 
+  .feature-content > span {
+    font-size: 9px;
+  }
+
   .feature-content h2 {
-    margin: 24px 0;
-    font-size: clamp(38px, 9vw, 54px);
+    max-width: 12ch;
+    margin: 18px 0;
+    font-size: clamp(35px, 8.4vw, 48px);
     letter-spacing: -2px;
     line-height: 0.99;
+  }
+
+  .feature-content > p {
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .feature-benefits {
+    margin-bottom: 22px;
   }
 
   .steps-grid {
@@ -1737,17 +1774,35 @@ h3 {
 
   .contact-section {
     min-height: 0;
-    padding: 64px 6%;
+    padding: 52px 6%;
     background: linear-gradient(180deg, #DCE4D6 0%, #A9B79E 100%);
   }
 
+  .contact-section > span {
+    max-width: 28ch;
+    line-height: 1.6;
+  }
+
   .contact-section h2 {
+    margin: 20px 0 16px;
     font-size: clamp(38px, 9vw, 58px);
     letter-spacing: -2px;
   }
 
   .contact-section p {
+    max-width: 36ch;
+    margin-bottom: 22px;
     font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .contact-actions {
+    width: 100%;
+  }
+
+  .contact-actions .contact-button {
+    min-height: 48px;
+    justify-content: center;
   }
 
   .contact-decoration {
@@ -1756,8 +1811,46 @@ h3 {
 
   .footer {
     grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 60px 6% 25px;
+    gap: 25px;
+    padding: 42px 6% 22px;
+  }
+
+  .footer-brand {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #FFFFFF35;
+  }
+
+  .footer-logo {
+    font-size: 40px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+  }
+
+  .footer-links a,
+  .footer-social a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-social {
+    padding-top: 4px;
+    text-align: left;
+  }
+
+  .footer-social a {
+    gap: 10px;
+    color: var(--cobre-claro);
+  }
+
+  .footer-bottom {
+    margin-top: 6px;
+    padding-top: 18px;
+    border-top-color: #FFFFFF50;
   }
 
   .hero-cta,
@@ -1783,11 +1876,16 @@ h3 {
   }
 
   .hero-title {
-    font-size: 39px;
+    font-size: 37px;
   }
 
   .hero-image {
     height: 100vw;
+  }
+
+  .footer-bottom p {
+    font-size: 9px;
+    line-height: 1.6;
   }
 
   .hero-benefit p,
