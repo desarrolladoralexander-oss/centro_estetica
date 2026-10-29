@@ -1268,3 +1268,259 @@ h3 {
 }
 
 /* 18. RESPONSIVE — CELULARES */
+
+@media (max-width: 600px) {
+  .topbar {
+    justify-content: center;
+    padding: 10px 4%;
+  }
+
+  .topbar p {
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .topbar p:last-child {
+    display: none;
+  }
+
+  .header {
+    min-height: 78px;
+    padding: 15px 5%;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .logo span {
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  .hero-content {
+    padding: 60px 6%;
+  }
+
+  .hero-label {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 10.5vw, 63px);
+    letter-spacing: -2.5px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-cta {
+    padding: 17px 20px;
+    font-size: 10px;
+    gap: 15px;
+  }
+
+  .hero-bottom {
+    margin-top: 45px;
+  }
+
+  .hero-image {
+    min-height: 410px;
+  }
+
+  .hero-photo-placeholder strong {
+    font-size: 30px;
+  }
+
+  .hero-sticker {
+    width: 105px;
+    height: 105px;
+    font-size: 9px;
+  }
+
+  .hero-sticker strong {
+    font-size: 10px;
+  }
+
+  .hero-sticker span {
+    font-size: 19px;
+  }
+
+  .hero-sparkle-one {
+    font-size: 40px;
+  }
+
+  .marquee-track {
+    font-size: 12px;
+  }
+
+  .categories-section,
+  .treatments-section,
+  .about-section,
+  .steps-section {
+    padding: 70px 5%;
+  }
+
+  .section-topline {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+
+  .section-topline span:last-child {
+    text-align: right;
+  }
+
+  .section-heading {
+    margin: 30px 0 35px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(36px, 9vw, 52px);
+    letter-spacing: -2px;
+  }
+
+  .section-heading p {
+    font-size: 13px;
+  }
+
+  .categories-grid {
+    gap: 10px;
+  }
+
+  .category-card {
+    min-height: 235px;
+    padding: 15px;
+    border-radius: 14px;
+  }
+
+  .category-number {
+    font-size: 8px;
+  }
+
+  .category-symbol {
+    font-size: 75px;
+  }
+
+  .category-bottom h3 {
+    font-size: 17px;
+    letter-spacing: -0.8px;
+  }
+
+  .category-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .filter-bar {
+    gap: 7px;
+  }
+
+  .filter-btn {
+    padding: 10px 13px;
+    font-size: 9px;
+  }
+
+  .treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .treatment-image {
+    height: 260px;
+  }
+
+  .treatment-info {
+    min-height: 190px;
+  }
+
+  .treatment-info h3 {
+    font-size: 22px;
+  }
+
+  .feature-visual {
+    min-height: 350px;
+  }
+
+  .feature-symbol {
+    font-size: 190px;
+  }
+
+  .feature-content {
+    padding: 70px 6%;
+  }
+
+  .feature-content h2 {
+    font-size: clamp(43px, 10vw, 65px);
+    letter-spacing: -2.5px;
+  }
+
+  .about-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    min-height: 270px;
+  }
+
+  .step-card {
+    min-height: 200px;
+  }
+
+  .contact-section {
+    min-height: 470px;
+    padding: 80px 6%;
+  }
+
+  .contact-section h2 {
+    font-size: clamp(48px, 11vw, 72px);
+    letter-spacing: -3px;
+  }
+
+  .contact-section p {
+    font-size: 14px;
+  }
+
+  .contact-decoration {
+    font-size: 55px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 60px 6% 25px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 19. ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
