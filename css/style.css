@@ -1835,20 +1835,6 @@ h3 {
   }
 
   .header {
-    min-height: 78px;
-    padding: 15px 5%;
-  }
-
-  .logo {
-    font-size: 34px;
-  }
-
-  .logo span {
-    font-size: 7px;
-    letter-spacing: 1.6px;
-  }
-
-  .header {
     min-height: 72px;
     gap: 8px;
     padding: 12px 4%;
@@ -2317,6 +2303,46 @@ h3 {
   .hero-benefit > span,
   .feature-benefit > span {
     font-size: 23px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header {
+    display: grid;
+    grid-template-areas:
+      "brand menu"
+      "agenda agenda";
+    grid-template-columns: minmax(0, 1fr) 42px;
+    gap: 10px 8px;
+    min-height: 0;
+    padding: 12px 12px 14px;
+  }
+
+  .logo {
+    grid-area: brand;
+    min-width: 0;
+    font-size: 29px;
+  }
+
+  .logo span {
+    font-size: 6px;
+    letter-spacing: 1.3px;
+  }
+
+  .menu-toggle {
+    grid-area: menu;
+    width: 42px;
+    height: 42px;
+    margin-left: 0;
+  }
+
+  .nav-button {
+    grid-area: agenda;
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    border-radius: 13px;
+    font-size: 11px;
   }
 }
 
