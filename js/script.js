@@ -118,5 +118,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  /* ==========================================
+     03. TARJETAS DE CATEGORÍAS
+  ========================================== */
+
+  const enlacesCategoria = document.querySelectorAll(
+    "[data-category-link]"
+  );
+
+  enlacesCategoria.forEach((enlace) => {
+
+    enlace.addEventListener("click", () => {
+
+      const categoria = enlace.dataset.categoryLink;
+
+      filtrarTratamientos(categoria);
+
+    });
+
+  });
+
 
 });
