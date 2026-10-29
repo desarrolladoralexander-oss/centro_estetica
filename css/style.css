@@ -1524,3 +1524,35 @@ h3 {
     transform: none;
   }
 }
+
+
+/* ==========================================
+   AJUSTES PARA JAVASCRIPT
+========================================== */
+
+/* Mantener ocultas las tarjetas filtradas */
+.treatment-card[hidden] {
+  display: none !important;
+}
+
+/* Animación de entrada */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respetar preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
