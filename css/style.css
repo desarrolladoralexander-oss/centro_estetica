@@ -281,6 +281,18 @@ h3 {
   box-shadow: 0 10px 24px #263D3530;
 }
 
+.contact-button {
+  justify-content: center;
+  gap: 12px;
+}
+
+.instagram-icon {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 auto;
+}
+
 .hero-cta span {
   font-size: 20px;
 }
@@ -1158,6 +1170,12 @@ h3 {
 
 .footer-social {
   text-align: right;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .footer-bottom {
