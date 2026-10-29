@@ -1484,6 +1484,10 @@ h3 {
 /* 18. RESPONSIVE — CELULARES */
 
 @media (max-width: 600px) {
+  body {
+    background: #F7F2E9;
+  }
+
   .topbar {
     justify-content: center;
     padding: 10px 4%;
@@ -1517,7 +1521,8 @@ h3 {
   }
 
   .hero-content {
-    padding: 60px 6%;
+    padding: 38px 6% 30px;
+    background: linear-gradient(180deg, #FCF9F3 0%, #F7F2E9 100%);
   }
 
   .hero-label {
@@ -1526,12 +1531,18 @@ h3 {
   }
 
   .hero-title {
-    font-size: clamp(42px, 10.5vw, 63px);
-    letter-spacing: -2.5px;
+    margin: 22px 0 18px;
+    font-size: clamp(40px, 10vw, 56px);
+    letter-spacing: -2px;
+    line-height: 0.98;
+    overflow-wrap: normal;
   }
 
   .hero-description {
+    max-width: 36ch;
+    margin-bottom: 22px;
     font-size: 14px;
+    line-height: 1.65;
   }
 
   .hero-cta {
@@ -1541,7 +1552,7 @@ h3 {
   }
 
   .hero-benefits {
-    margin-top: 35px;
+    margin-top: 25px;
   }
 
   .hero-benefit,
@@ -1556,7 +1567,9 @@ h3 {
   }
 
   .hero-image {
-    min-height: 410px;
+    min-height: 0;
+    height: min(112vw, 470px);
+    max-height: 470px;
   }
 
   .hero-sticker {
@@ -1585,7 +1598,8 @@ h3 {
   .treatments-section,
   .about-section,
   .steps-section {
-    padding: 70px 5%;
+    padding: 56px 5%;
+    background-image: linear-gradient(180deg, #FCF9F3 0%, #F5F0E7 100%);
   }
 
   .section-topline {
@@ -1602,8 +1616,9 @@ h3 {
   }
 
   .section-heading h2 {
-    font-size: clamp(36px, 9vw, 52px);
-    letter-spacing: -2px;
+    font-size: clamp(34px, 8.5vw, 46px);
+    letter-spacing: -1.7px;
+    overflow-wrap: break-word;
   }
 
   .section-heading p {
@@ -1670,12 +1685,16 @@ h3 {
   }
 
   .feature-content {
-    padding: 70px 6%;
+    min-height: 0;
+    padding: 48px 6%;
+    background: linear-gradient(180deg, #263D35 0%, #31493D 100%);
   }
 
   .feature-content h2 {
-    font-size: clamp(43px, 10vw, 65px);
-    letter-spacing: -2.5px;
+    margin: 24px 0;
+    font-size: clamp(38px, 9vw, 54px);
+    letter-spacing: -2px;
+    line-height: 0.99;
   }
 
   .steps-grid {
@@ -1698,8 +1717,9 @@ h3 {
   }
 
   .specialist-content h2 {
-    font-size: clamp(40px, 10vw, 58px);
-    letter-spacing: -2.5px;
+    font-size: clamp(38px, 9vw, 52px);
+    letter-spacing: -2px;
+    line-height: 1.02;
   }
 
   .specialist-areas {
@@ -1716,13 +1736,14 @@ h3 {
   }
 
   .contact-section {
-    min-height: 470px;
-    padding: 80px 6%;
+    min-height: 0;
+    padding: 64px 6%;
+    background: linear-gradient(180deg, #DCE4D6 0%, #A9B79E 100%);
   }
 
   .contact-section h2 {
-    font-size: clamp(40px, 10vw, 68px);
-    letter-spacing: -3px;
+    font-size: clamp(38px, 9vw, 58px);
+    letter-spacing: -2px;
   }
 
   .contact-section p {
@@ -1739,9 +1760,44 @@ h3 {
     padding: 60px 6% 25px;
   }
 
+  .hero-cta,
+  .feature-button,
+  .contact-button {
+    max-width: 100%;
+    gap: 12px;
+    padding: 15px 18px;
+    font-size: 10px;
+  }
+
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-label {
+    gap: 7px;
+    font-size: 8px;
+    letter-spacing: 0.45px;
+  }
+
+  .hero-title {
+    font-size: 39px;
+  }
+
+  .hero-image {
+    height: 100vw;
+  }
+
+  .hero-benefit p,
+  .feature-benefit p {
+    font-size: 7px;
+  }
+
+  .hero-benefit > span,
+  .feature-benefit > span {
+    font-size: 23px;
   }
 }
 
