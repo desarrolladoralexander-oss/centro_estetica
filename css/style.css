@@ -847,3 +847,72 @@ h3 {
 }
 
 /* 11. SOBRE NOSOTROS */
+
+.about-section {
+  background: #FCF9F3;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-card {
+  min-height: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  border: var(--borde);
+  border-radius: var(--radio);
+  background: var(--salvia-clara);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.about-card:nth-child(2) {
+  background: var(--arena);
+}
+
+.about-card:nth-child(3) {
+  background: var(--cobre-claro);
+}
+
+.about-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--sombra);
+}
+
+.about-card > span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.about-symbol {
+  align-self: center;
+  margin: 20px 0;
+  color: var(--verde);
+  font-size: 85px;
+  line-height: 1;
+  transition: transform 0.4s ease;
+}
+
+.about-card:hover .about-symbol {
+  transform: rotate(18deg);
+}
+
+.about-card h3 {
+  margin-top: auto;
+  margin-bottom: 10px;
+  color: var(--verde);
+  font-size: 23px;
+  letter-spacing: -1px;
+}
+
+.about-card p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* 12. CÓMO AGENDAR */
