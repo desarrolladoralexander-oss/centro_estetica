@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background: var(--marfil);
+  background: linear-gradient(180deg, #FCF9F3 0%, var(--marfil) 45%, #F1EBDD 100%);
   color: var(--oscuro);
   font-family: "DM Sans", sans-serif;
   overflow-x: hidden;
@@ -195,7 +195,7 @@ h3 {
 
 .hero-content {
   padding: 75px 8% 65px 12%;
-  background: var(--marfil);
+  background: linear-gradient(135deg, #FCF9F3 0%, var(--marfil) 72%, #EFE5D6 100%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -434,7 +434,7 @@ h3 {
 .marquee {
   overflow: hidden;
   padding: 17px 0;
-  background: var(--verde);
+  background: linear-gradient(100deg, #263D35 0%, #344C40 48%, #263D35 100%);
   color: var(--marfil);
   border-top: 1px solid var(--verde);
   border-bottom: 1px solid var(--verde);
@@ -503,7 +503,7 @@ h3 {
 /* 08. TARJETAS DE CATEGORÍAS */
 
 .categories-section {
-  background: #FCF9F3;
+  background: linear-gradient(145deg, #FCF9F3 0%, #F7F1E7 58%, #EEE7D9 100%);
 }
 
 .categories-grid {
@@ -624,7 +624,7 @@ h3 {
 /* 09. TRATAMIENTOS */
 
 .treatments-section {
-  background: var(--marfil);
+  background: linear-gradient(125deg, #F5F0E7 0%, #F8F4EC 52%, #ECE6DA 100%);
 }
 
 .filter-bar {
@@ -863,7 +863,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background: var(--verde);
+  background: linear-gradient(135deg, #263D35 0%, #314B40 55%, #405849 100%);
   color: var(--marfil);
 }
 
@@ -933,7 +933,7 @@ h3 {
 /* 11. SOBRE NOSOTROS */
 
 .about-section {
-  background: #FCF9F3;
+  background: linear-gradient(120deg, #FCF9F3 0%, #F5F0E7 55%, #E9E9DA 100%);
 }
 
 .specialist-grid {
@@ -1085,7 +1085,7 @@ h3 {
 /* 12. CÓMO AGENDAR */
 
 .steps-section {
-  background: var(--marfil);
+  background: linear-gradient(135deg, #F5F0E7 0%, #F8F4EC 55%, #EDE9DE 100%);
 }
 
 .steps-grid {
@@ -1177,7 +1177,7 @@ h3 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--salvia);
+  background: linear-gradient(135deg, #DCE4D6 0%, #A9B79E 48%, #8F9F89 100%);
 }
 
 .contact-section > span {
@@ -1240,7 +1240,7 @@ h3 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   padding: 70px 6% 25px;
-  background: var(--verde);
+  background: linear-gradient(115deg, #263D35 0%, #31493D 55%, #20362F 100%);
   color: var(--marfil);
 }
 
