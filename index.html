@@ -1,19 +1,25 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rueda Centro de Estética: un espacio dedicado a tu belleza y bienestar.">
 
   <title>Rueda | Centro de Estética</title>
+
+  <meta name="description"
+    content="Descubre los tratamientos faciales, corporales, capilares y de bienestar de Rueda Centro de Estética.">
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Estilos -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- JavaScript -->
@@ -22,96 +28,50 @@
 
 <body>
 
-  <!-- Barra superior -->
+  <!-- ===================================
+       BARRA SUPERIOR
+  ==================================== -->
   <div class="topbar">
-    <p>✦ BELLEZA · BIENESTAR · CONFIANZA</p>
-    <p>UN ESPACIO PARA TI</p>
+    <p>✳ BELLEZA · BIENESTAR · CONFIANZA</p>
+    <p>UN ESPACIO PARA TI ✳</p>
   </div>
 
-  <!-- Menú principal -->
+  <!-- ===================================
+       MENÚ PRINCIPAL
+  ==================================== -->
   <header class="header">
 
-    <a href="#" class="logo">
+    <a href="#inicio" class="logo">
       RUEDA
       <span>CENTRO DE ESTÉTICA</span>
     </a>
 
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Tratamientos</a>
-      <a href="#contacto">Contacto</a>
+    <nav class="nav" id="main-nav" aria-label="Menú principal">
+      <a href="#inicio">INICIO</a>
+      <a href="#categorias">CATEGORÍAS</a>
+      <a href="#servicios">TRATAMIENTOS</a>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#contacto">CONTACTO</a>
     </nav>
 
     <a href="#contacto" class="nav-button">
       AGENDA TU CITA ↗
     </a>
 
+    <button class="menu-toggle" type="button"
+      aria-label="Abrir menú"
+      aria-controls="main-nav"
+      aria-expanded="false">
+      ☰
+    </button>
+
   </header>
 
-  <!-- Portada -->
   <main>
-
-    <section class="hero" id="inicio">
-
-      <div class="hero-content">
-
-        <span class="eyebrow">
-          ✳ TU BIENESTAR ES NUESTRA ESENCIA
-        </span>
-
-        <h1>
-          TU MEJOR
-          <span>VERSIÓN</span>
-          EMPIEZA
-          AQUÍ.
-        </h1>
-
-        <p>
-          Un espacio dedicado a tu belleza y bienestar.
-          Descubre nuestros tratamientos faciales,
-          corporales y de relajación.
-        </p>
-
-        <a href="#servicios" class="hero-button">
-          EXPLORAR TRATAMIENTOS
-          <span>↗</span>
-        </a>
-
-      </div>
-
-      <div class="hero-visual">
-        <div class="visual-circle"></div>
-
-        <div class="visual-message">
-          <span>✦ RUEDA ✦</span>
-          <strong>Tu momento<br>de cuidarte.</strong>
-          <small>PRÓXIMAMENTE: FOTO REAL DEL CENTRO</small>
-        </div>
-
-        <div class="visual-stamp">
-          BELLEZA<br>Y BIENESTAR
-          <span>↗</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Sección que construiremos después -->
-    <section class="next-section" id="servicios">
-      <span>01 / NUESTROS SERVICIOS</span>
-      <h2>TRATAMIENTOS <em>PENSADOS PARA TI.</em></h2>
-      <p>Próximamente construiremos aquí nuestras 10 tarjetas.</p>
-    </section>
 
   </main>
 
-  <footer id="contacto">
-    <p>RUEDA · CENTRO DE ESTÉTICA</p>
-    <a href="https://www.instagram.com/rueda_centrodeestetica/"
-       target="_blank" rel="noopener noreferrer">
-      VISITAR INSTAGRAM ↗
-    </a>
-  </footer>
+  <footer id="contacto"><p>RUEDA · CENTRO DE ESTÉTICA</p></footer>
 
 </body>
 </html>
