@@ -119,18 +119,19 @@ h3 {
 .logo {
   flex-shrink: 0;
   color: var(--verde);
-  font-family: "Manrope", sans-serif;
-  font-size: 34px;
-  font-weight: 800;
-  letter-spacing: -2.5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -1.8px;
   line-height: 0.95;
+  text-shadow: 1px 2px 0 rgba(38, 61, 53, 0.12);
 }
 
 .logo span {
   display: block;
   margin-top: 9px;
   font-size: 8px;
-  letter-spacing: 2.1px;
+  letter-spacing: 2.5px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -1338,18 +1339,19 @@ h3 {
 }
 
 .footer-logo {
-  font-family: "Manrope", sans-serif;
-  font-size: 46px;
-  font-weight: 800;
-  letter-spacing: -3px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 54px;
+  font-weight: 700;
+  letter-spacing: -2px;
   line-height: 1;
+  text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.16);
 }
 
 .footer-brand p {
   margin-top: 10px;
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 2.2px;
+  letter-spacing: 2.5px;
 }
 
 .footer-links {
@@ -1601,12 +1603,12 @@ h3 {
   }
 
   .logo {
-    font-size: 26px;
+    font-size: 34px;
   }
 
   .logo span {
     font-size: 7px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.6px;
   }
 
   .nav-button {
@@ -1932,7 +1934,7 @@ h3 {
   }
 
   .footer-logo {
-    font-size: 40px;
+    font-size: 46px;
   }
 
   .footer-brand p {
