@@ -27,6 +27,38 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==========================================
+     00. SELECCIÓN DE TRATAMIENTO PARA RESERVAR
+  ========================================== */
+
+  const bookingDialog = document.querySelector("#booking-dialog");
+
+  if (bookingDialog && typeof bookingDialog.showModal === "function") {
+    const bookingTriggers = document.querySelectorAll(".booking-trigger");
+    const bookingOptions = bookingDialog.querySelectorAll("[data-booking-service]");
+    const bookingContinue = bookingDialog.querySelector(".booking-continue");
+    const bookingSelection = bookingDialog.querySelector(".booking-selection");
+
+    bookingTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => bookingDialog.showModal());
+    });
+
+    bookingOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        bookingOptions.forEach((item) => {
+          const selected = item === option;
+          item.classList.toggle("is-selected", selected);
+          item.setAttribute("aria-pressed", String(selected));
+        });
+
+        bookingContinue.removeAttribute("aria-disabled");
+        bookingContinue.removeAttribute("tabindex");
+        bookingContinue.dataset.selectedService = option.dataset.bookingService;
+        bookingSelection.textContent = `Tratamiento elegido: ${option.dataset.bookingService}`;
+      });
+    });
+  }
+
+  /* ==========================================
      01. MENÚ MÓVIL
   ========================================== */
 
