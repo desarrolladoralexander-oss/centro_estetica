@@ -877,21 +877,96 @@ h3 {
   line-height: 1.7;
 }
 
-.treatment-info a {
+.treatment-actions {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
   margin-top: auto;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--verde);
-  color: var(--verde);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  transition: color 0.25s ease,
-              letter-spacing 0.25s ease;
 }
 
-.treatment-info a:hover {
-  color: var(--cobre);
-  letter-spacing: 1.5px;
+.treatment-actions a,
+.treatment-booking-trigger {
+  min-height: 42px;
+  flex: 1 1 110px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 10px;
+  border: 1px solid var(--verde);
+  border-radius: 30px;
+  background: var(--blanco);
+  color: var(--verde);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.treatment-actions a:hover,
+.treatment-booking-trigger:hover {
+  transform: translateY(-2px);
+  border-color: var(--cobre);
+  background: var(--salvia-clara);
+  color: var(--verde);
+}
+
+.treatment-booking-trigger {
+  border-color: var(--verde);
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+.treatment-booking-trigger:hover {
+  background: var(--oliva);
+  color: var(--blanco);
+}
+
+.treatments-cta {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.treatments-cta p {
+  color: var(--verde);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.treatments-booking-button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 15px 28px;
+  border: 1px solid var(--cobre-claro);
+  border-radius: 40px;
+  background: var(--verde);
+  box-shadow: 0 6px 0 rgba(198, 142, 112, 0.55);
+  color: var(--blanco);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.treatments-booking-button span {
+  color: var(--cobre-claro);
+  font-size: 19px;
+}
+
+.treatments-booking-button:hover {
+  transform: translateY(-3px);
+  background: var(--oliva);
+  box-shadow: 0 9px 0 rgba(198, 142, 112, 0.4);
 }
 
 /* 10. SECCIÓN DESTACADA */
@@ -2094,6 +2169,17 @@ h3 {
 
   .treatment-info h3 {
     font-size: 22px;
+  }
+
+  .treatments-cta {
+    margin-top: 32px;
+  }
+
+  .treatments-booking-button {
+    width: 100%;
+    max-width: 340px;
+    min-height: 50px;
+    padding: 14px 16px;
   }
 
   .feature-visual {

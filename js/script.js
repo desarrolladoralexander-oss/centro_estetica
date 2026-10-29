@@ -62,6 +62,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    document.querySelectorAll(".treatment-booking-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const treatmentName = trigger
+          .closest(".treatment-card")
+          ?.querySelector("h3")
+          ?.textContent.trim();
+        const normalize = (value) => value.normalize("NFC").toLocaleLowerCase("es");
+        const matchingOption = Array.from(bookingOptions).find(
+          (option) => normalize(option.dataset.bookingService) === normalize(treatmentName || ""),
+        );
+
+        mostrarSelectorTratamientos();
+        bookingDialog.showModal();
+
+        if (matchingOption) {
+          matchingOption.click();
+          bookingContinue.click();
+        }
+      });
+    });
+
     bookingOptions.forEach((option) => {
       option.addEventListener("click", () => {
         bookingOptions.forEach((item) => {
