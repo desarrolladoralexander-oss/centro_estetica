@@ -883,7 +883,7 @@ h3 {
 /* 11. SOBRE NOSOTROS */
 
 .about-section {
-  background: var(--salvia-clara);
+  background: #FCF9F3;
 }
 
 .specialist-grid {
@@ -896,8 +896,8 @@ h3 {
 
 .specialist-photo-frame {
   position: relative;
-  min-height: 610px;
   overflow: hidden;
+  aspect-ratio: 1;
   border: var(--borde);
   border-radius: var(--radio);
   background: var(--arena);
@@ -908,27 +908,7 @@ h3 {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 24%;
-}
-
-.specialist-photo-frame::after {
-  position: absolute;
-  inset: 55% 0 0;
-  content: "";
-  background: linear-gradient(180deg, transparent, #263D3580);
-  pointer-events: none;
-}
-
-.specialist-photo-frame figcaption {
-  position: absolute;
-  z-index: 1;
-  left: 24px;
-  bottom: 24px;
-  color: var(--blanco);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  object-fit: contain;
 }
 
 .specialist-content {
@@ -943,6 +923,14 @@ h3 {
   letter-spacing: 1.3px;
 }
 
+.specialist-eyebrow::before {
+  content: "✳";
+  margin-right: 12px;
+  color: var(--cobre);
+  font-size: 19px;
+  vertical-align: -2px;
+}
+
 .specialist-content h2 {
   margin: 24px 0 18px;
   color: var(--verde);
@@ -950,6 +938,11 @@ h3 {
   font-weight: 800;
   letter-spacing: -4px;
   line-height: 1.02;
+}
+
+.specialist-content h2 em {
+  color: var(--cobre);
+  font-style: normal;
 }
 
 .specialist-content h3 {
@@ -970,27 +963,73 @@ h3 {
 .specialist-areas {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 20px;
+  gap: 12px;
   margin-top: 34px;
-  list-style: none;
 }
 
-.specialist-areas li {
-  min-height: 55px;
-  display: flex;
+.specialist-area {
+  min-width: 0;
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 36px 30px minmax(0, 1fr) 28px;
   align-items: center;
-  gap: 12px;
-  border-top: 1px solid #263D3560;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid #263D3520;
+  border-radius: 18px;
+  background: #FFFFFFA8;
   color: var(--verde);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.specialist-area:hover {
+  transform: translateY(-3px);
+  border-color: var(--cobre);
+  background: var(--blanco);
+}
+
+.specialist-area-number {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--salvia-clara);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.specialist-area:nth-child(even) .specialist-area-number {
+  background: var(--arena);
+}
+
+.specialist-area-symbol {
+  color: var(--oliva);
+  font-size: 22px;
+  text-align: center;
+}
+
+.specialist-area-name {
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
 }
 
-.specialist-areas li span {
-  color: var(--cobre);
-  font-size: 10px;
+.specialist-area-arrow {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cobre-claro);
+  color: var(--verde);
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.specialist-area:hover .specialist-area-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* 12. CÓMO AGENDAR */
@@ -1374,8 +1413,13 @@ h3 {
     gap: 28px;
   }
 
+  .specialist-areas {
+    grid-template-columns: 1fr;
+  }
+
   .specialist-photo-frame {
-    min-height: 560px;
+    min-height: 0;
+    aspect-ratio: 1;
   }
 
   .footer {
@@ -1584,12 +1628,8 @@ h3 {
   }
 
   .specialist-photo-frame {
-    min-height: clamp(370px, 112vw, 500px);
-  }
-
-  .specialist-photo-frame figcaption {
-    left: 18px;
-    bottom: 18px;
+    min-height: 0;
+    aspect-ratio: 1;
   }
 
   .specialist-content {
@@ -1602,12 +1642,12 @@ h3 {
   }
 
   .specialist-areas {
-    gap: 0 10px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .specialist-areas li {
-    gap: 8px;
-    font-size: 10px;
+  .specialist-area {
+    gap: 10px;
   }
 
   .step-card {
