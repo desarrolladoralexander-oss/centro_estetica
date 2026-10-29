@@ -139,4 +139,59 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  /* ==========================================
+     04. ANIMACIONES AL HACER SCROLL
+  ========================================== */
+
+  const elementosAnimados = document.querySelectorAll(
+    ".section-heading, " +
+    ".category-card, " +
+    ".treatment-card, " +
+    ".about-card, " +
+    ".step-card, " +
+    ".feature-content"
+  );
+
+  const movimientoReducido = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!movimientoReducido && "IntersectionObserver" in window) {
+
+    // Agregar clase de preparación
+    elementosAnimados.forEach((elemento) => {
+      elemento.classList.add("reveal");
+    });
+
+    const observador = new IntersectionObserver(
+      (entradas, observer) => {
+
+        entradas.forEach((entrada) => {
+
+          if (entrada.isIntersecting) {
+
+            entrada.target.classList.add("visible");
+
+            // Animar solamente la primera vez
+            observer.unobserve(entrada.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -30px 0px"
+      }
+    );
+
+    elementosAnimados.forEach((elemento) => {
+      observador.observe(elemento);
+    });
+
+  }
+
+
+
 });
