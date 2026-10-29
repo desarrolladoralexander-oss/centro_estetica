@@ -1031,6 +1031,27 @@ h3 {
   box-shadow: var(--sombra);
 }
 
+.step-card-image {
+  display: block;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  padding: 0;
+}
+
+.step-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.step-card-image:hover img,
+.step-card-image:focus-visible img {
+  transform: scale(1.035);
+}
+
 .step-top {
   display: flex;
   align-items: center;
