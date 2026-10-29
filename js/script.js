@@ -193,5 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+  /* ==========================================
+     05. REINICIAR FILTRO AL CARGAR
+  ========================================== */
+
+  filtrarTratamientos("todos");
 
 });
