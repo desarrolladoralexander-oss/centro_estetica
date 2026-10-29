@@ -665,6 +665,18 @@ h3 {
   transition: transform 0.5s ease;
 }
 
+.treatment-image.has-photo::before {
+  display: none;
+}
+
+.treatment-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .treatment-card:hover .treatment-image::before {
   transform: scale(1.3);
 }
