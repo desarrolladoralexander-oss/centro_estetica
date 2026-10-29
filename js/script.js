@@ -63,5 +63,60 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+  /* ==========================================
+     02. FILTROS DE TRATAMIENTOS
+  ========================================== */
+
+  const botonesFiltro = document.querySelectorAll(".filter-btn");
+
+  const tarjetasTratamiento = document.querySelectorAll(
+    ".treatment-card"
+  );
+
+  function filtrarTratamientos(categoria) {
+
+    // Actualizar botones
+    botonesFiltro.forEach((boton) => {
+
+      const seleccionado = boton.dataset.filter === categoria;
+
+      boton.classList.toggle("active", seleccionado);
+
+      boton.setAttribute(
+        "aria-pressed",
+        String(seleccionado)
+      );
+
+    });
+
+    // Mostrar u ocultar tarjetas
+    tarjetasTratamiento.forEach((tarjeta) => {
+
+      const categoriaTarjeta = tarjeta.dataset.category;
+
+      const mostrar =
+        categoria === "todos" ||
+        categoriaTarjeta === categoria;
+
+      tarjeta.hidden = !mostrar;
+
+    });
+
+  }
+
+  // Clic en los botones de filtro
+  botonesFiltro.forEach((boton) => {
+
+    boton.addEventListener("click", () => {
+
+      const categoria = boton.dataset.filter;
+
+      filtrarTratamientos(categoria);
+
+    });
+
+  });
+
+
 
 });
