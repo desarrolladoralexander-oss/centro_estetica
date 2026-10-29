@@ -415,3 +415,25 @@ h3 {
   font-size: 24px;
 }
 
+/* 06. FRANJA ANIMADA */
+
+.marquee {
+  overflow: hidden;
+  padding: 17px 0;
+  background: var(--verde);
+  color: var(--marfil);
+  border-top: 1px solid var(--verde);
+  border-bottom: 1px solid var(--verde);
+}
+
+.marquee-track {
+  width: max-content;
+  white-space: nowrap;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  animation: deslizar 24s linear infinite;
+}
+
+/* 07. ELEMENTOS COMPARTIDOS */
