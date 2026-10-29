@@ -2634,3 +2634,103 @@ h3 {
   border-left-color: #b5523b;
   color: #7a2e1d;
 }
+
+/* PANTALLA FINAL: CITA AGENDADA */
+
+.rw-ok {
+  text-align: center;
+}
+
+.rw-ok-title {
+  margin-top: 6px;
+  color: var(--verde);
+  font-family: "Manrope", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.rw-ok-sub {
+  margin: 6px 0 18px;
+  color: var(--oliva);
+  font-size: 14px;
+}
+
+.rw-card {
+  padding: 6px 18px;
+  border: 1px solid rgba(38, 61, 53, 0.18);
+  border-radius: 20px;
+  background: var(--blanco);
+  text-align: left;
+}
+
+.rw-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(38, 61, 53, 0.1);
+  font-size: 14px;
+}
+
+.rw-row:last-child {
+  border-bottom: 0;
+}
+
+.rw-row span {
+  color: var(--oliva);
+}
+
+.rw-row strong {
+  color: var(--verde);
+  text-align: right;
+}
+
+.rw-code-box {
+  margin: 18px 0;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--verde);
+  color: var(--marfil);
+}
+
+.rw-code-box p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.rw-code {
+  margin: 8px 0;
+  color: var(--cobre-claro);
+  font-family: "Manrope", sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 10px;
+}
+
+.rw-code-box small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.rw-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px;
+  border: 1px solid rgba(38, 61, 53, 0.3);
+  border-radius: 40px;
+  background: var(--blanco);
+  color: var(--verde);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.rw-btn:hover {
+  border-color: var(--cobre);
+}

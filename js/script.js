@@ -5,8 +5,7 @@
 ============================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* 00. SELECCIÓN DE TRATAMIENTO PARA RESERVAR */
+  /* 00. SELECCIÓN DE TRATAMIENTO PARA RESERVAR */
 
   const bookingDialog = document.querySelector("#booking-dialog");
 
@@ -69,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         time: "",
         name: "",
         phone: "",
+        code: "",
         loading: false,
         sending: false,
         error: "",
@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function enviarReserva() {
       st.sending = true;
       st.error = "";
+      st.code = String(Math.floor(1000 + Math.random() * 9000));
       renderAgenda();
       try {
         const res = await fetch(APPS_SCRIPT_URL, {
@@ -123,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
             start: `${st.date}T${st.time}:00-05:00`,
             name: st.name.trim(),
             phone: st.phone.trim(),
+            code: st.code,
           }),
         });
         const data = await res.json();
@@ -149,12 +151,29 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderAgenda() {
       if (st.confirmed) {
         const d = fromKey(st.date);
+        const dia = `${WEEK[d.getDay()]} ${d.getDate()} de ${MONTHS[d.getMonth()]}`;
+
         agenda.innerHTML = `
-          <div class="rw-msg">
-            Tu cita de <strong>${escapeHTML(st.service)}</strong> quedó para el
-            ${WEEK[d.getDay()].toLowerCase()} ${d.getDate()} de ${MONTHS[d.getMonth()]}
-            a las ${fmtTime(st.time)}. Te confirmaremos la reserva.
-          </div>`;
+          <div class="rw-ok">
+            <h3 class="rw-ok-title">¡Cita agendada!</h3>
+            <p class="rw-ok-sub">Te esperamos en Rueda Centro de Estética</p>
+
+            <div class="rw-card">
+              <div class="rw-row"><span>Cliente</span><strong>${escapeHTML(st.name)}</strong></div>
+              <div class="rw-row"><span>Servicio</span><strong>${escapeHTML(st.service)}</strong></div>
+              <div class="rw-row"><span>Día</span><strong>${dia}</strong></div>
+              <div class="rw-row"><span>Hora</span><strong>${fmtTime(st.time)}</strong></div>
+            </div>
+
+            <div class="rw-code-box">
+              <p>Tu código para cancelar</p>
+              <div class="rw-code">${st.code}</div>
+              <small>Guárdalo. Si no puedes venir, comunícate con el centro para cancelar.</small>
+            </div>
+
+            <button type="button" class="rw-btn" data-action="new">Agendar otra cita</button>
+          </div>
+        `;
         return;
       }
 
@@ -208,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btn) btn.disabled = !puedeConfirmar();
     }
 
-    // Clics: día, hora, confirmar
+    // Clics: día, hora, confirmar, agendar otra
     agenda.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-date], [data-time], [data-action]");
       if (!btn) return;
@@ -222,6 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
         renderAgenda();
       } else if (btn.dataset.action === "confirm" && puedeConfirmar()) {
         enviarReserva();
+      } else if (btn.dataset.action === "new") {
+        mostrarSelectorTratamientos();
       }
     });
 
@@ -257,32 +278,38 @@ document.addEventListener("DOMContentLoaded", () => {
       bookingCalendarSummary.textContent = `Tratamiento elegido: ${service}`;
       bookingTitle.textContent = "Elige fecha y hora";
       bookingCalendar.hidden = false;
-      agenda.replaceChildren();
-      if (!bookingDialog.open) bookingDialog.showModal();
       loadDays();
     }
 
     bookingTriggers.forEach((trigger) => {
       trigger.addEventListener("click", () => {
         mostrarSelectorTratamientos();
-        agenda.replaceChildren();
-        if (!bookingDialog.open) bookingDialog.showModal();
+        bookingDialog.showModal();
       });
     });
 
     document.querySelectorAll(".treatment-booking-trigger").forEach((trigger) => {
       trigger.addEventListener("click", () => {
-        const service = trigger
+        const treatmentName = trigger
           .closest(".treatment-card")
           ?.querySelector("h3")
           ?.textContent.trim();
+        const normalize = (value) => value.normalize("NFC").toLocaleLowerCase("es");
+        const matchingOption = Array.from(bookingOptions).find(
+          (option) => normalize(option.dataset.bookingService) === normalize(treatmentName || ""),
+        );
 
-        if (service) abrirAgenda(service);
+        mostrarSelectorTratamientos();
+        bookingDialog.showModal();
+
+        if (matchingOption) {
+          matchingOption.click();
+          bookingContinue.click();
+        }
       });
     });
 
     bookingOptions.forEach((option) => {
-      option.setAttribute("aria-pressed", "false");
       option.addEventListener("click", () => {
         bookingOptions.forEach((item) => {
           const selected = item === option;
@@ -297,19 +324,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bookingContinue.addEventListener("click", () => {
-      const service = bookingContinue.dataset.selectedService;
-      if (!service || bookingContinue.getAttribute("aria-disabled") === "true") return;
-      abrirAgenda(service);
+      if (bookingContinue.getAttribute("aria-disabled") === "true") return;
+      abrirAgenda(bookingContinue.dataset.selectedService);
     });
 
-    bookingBack.addEventListener("click", () => {
-      mostrarSelectorTratamientos();
-      if (!bookingDialog.open) bookingDialog.showModal();
-    });
-
-    bookingDialog.addEventListener("click", (event) => {
-      if (event.target === bookingDialog) bookingDialog.close();
-    });
+    bookingBack.addEventListener("click", mostrarSelectorTratamientos);
   }
   /* ==========================================
      01. MENÚ MÓVIL
