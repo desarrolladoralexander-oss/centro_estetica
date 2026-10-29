@@ -143,13 +143,16 @@ h3 {
 }
 
 .nav a {
-  font-size: 10px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.5px;
-  transition: color 0.25s ease;
+  letter-spacing: 0.6px;
+  transition: color 0.25s ease, background 0.25s ease;
 }
 
 .nav a:hover {
+  background: var(--salvia-clara);
   color: var(--cobre);
 }
 
@@ -158,23 +161,32 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  min-height: 46px;
-  padding: 15px 22px;
+  min-height: 52px;
+  padding: 15px 24px;
   background: var(--verde);
   color: var(--blanco);
   border-radius: 50px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.7px;
   transition: transform 0.3s ease,
               background 0.3s ease;
-  border: 0;
   font-family: inherit;
+  border: 1px solid var(--cobre-claro);
+  box-shadow: 0 5px 0 rgba(198, 142, 112, 0.55);
+}
+
+.nav-button span {
+  margin-left: 4px;
+  color: var(--cobre-claro);
+  font-size: 19px;
+  line-height: 0.8;
 }
 
 .nav-button:hover {
   background: var(--oliva);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgba(198, 142, 112, 0.45);
 }
 
 .menu-toggle {
@@ -1684,12 +1696,13 @@ h3 {
     top: 100%;
     left: 0;
     right: 0;
-    padding: 25px 6%;
+    padding: 18px 6% 22px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: stretch;
+    gap: 9px;
     background: var(--marfil);
     border-bottom: var(--borde);
+    border-radius: 0 0 18px 18px;
     box-shadow: 0 15px 25px #263D3515;
   }
 
@@ -1698,7 +1711,31 @@ h3 {
   }
 
   .nav a {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 17px;
+    border: 1px solid rgba(38, 61, 53, 0.2);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.76);
+    color: var(--verde);
     font-size: 13px;
+    letter-spacing: 0.8px;
+    box-shadow: 0 3px 0 rgba(38, 61, 53, 0.07);
+  }
+
+  .nav a::after {
+    content: "↗";
+    color: var(--cobre);
+    font-size: 17px;
+  }
+
+  .nav a:hover {
+    transform: translateX(3px);
+    border-color: var(--cobre);
+    background: var(--salvia-clara);
+    color: var(--verde);
   }
 
   .menu-toggle {
@@ -1811,8 +1848,42 @@ h3 {
     letter-spacing: 1.6px;
   }
 
+  .header {
+    min-height: 72px;
+    gap: 8px;
+    padding: 12px 4%;
+  }
+
+  .logo {
+    font-size: 30px;
+  }
+
+  .logo span {
+    margin-top: 6px;
+    font-size: 6px;
+    letter-spacing: 1.35px;
+  }
+
   .nav-button {
-    display: none;
+    display: inline-flex;
+    min-height: 40px;
+    padding: 10px 10px;
+    border-radius: 13px;
+    font-size: 8px;
+    letter-spacing: 0.25px;
+    white-space: nowrap;
+    box-shadow: 0 4px 0 rgba(198, 142, 112, 0.55);
+  }
+
+  .nav-button span {
+    margin-left: 1px;
+    font-size: 16px;
+  }
+
+  .menu-toggle {
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
   }
 
   .booking-dialog-panel {
