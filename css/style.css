@@ -766,3 +766,84 @@ h3 {
 }
 
 /* 10. SECCIÓN DESTACADA */
+
+.feature-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 610px;
+}
+
+.feature-visual {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  min-height: 520px;
+  background: var(--arena);
+}
+
+.feature-circle {
+  position: absolute;
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cobre-claro);
+  border: 35px solid var(--salvia);
+}
+
+.feature-symbol {
+  position: relative;
+  color: var(--verde);
+  font-size: clamp(170px, 20vw, 350px);
+  line-height: 1;
+  animation: flotar 5s ease-in-out infinite;
+}
+
+.feature-content {
+  padding: 75px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--verde);
+  color: var(--marfil);
+}
+
+.feature-content > span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.feature-content h2 {
+  margin: 35px 0;
+  font-size: clamp(45px, 5vw, 82px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 1.05;
+}
+
+.feature-content h2 em {
+  display: block;
+  color: var(--cobre-claro);
+  font-style: normal;
+}
+
+.feature-content p {
+  max-width: 430px;
+  margin-bottom: 32px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.feature-button {
+  background: var(--marfil);
+  color: var(--verde);
+}
+
+.feature-button:hover {
+  background: var(--cobre-claro);
+  color: var(--verde);
+}
+
+/* 11. SOBRE NOSOTROS */
