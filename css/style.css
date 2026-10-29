@@ -184,3 +184,234 @@ h3 {
   font-size: 24px;
 }
 
+/* 05. HERO */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.hero-content {
+  padding: 75px 8% 65px 12%;
+  background: var(--marfil);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--verde);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.hero-star {
+  display: inline-block;
+  color: var(--cobre);
+  font-size: 27px;
+  animation: girar 14s linear infinite;
+}
+
+.hero-title {
+  margin: 32px 0 28px;
+  color: var(--verde);
+  font-size: clamp(44px, 5.1vw, 98px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -5px;
+  overflow-wrap: anywhere;
+}
+
+.hero-accent {
+  display: block;
+  width: fit-content;
+  color: var(--cobre);
+  font-style: italic;
+  transform: rotate(-2deg);
+  transform-origin: left center;
+}
+
+.hero-last {
+  display: block;
+}
+
+.hero-dot {
+  color: var(--cobre);
+}
+
+.hero-description {
+  max-width: 425px;
+  margin-bottom: 32px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hero-cta,
+.feature-button,
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 18px 25px;
+  background: var(--verde);
+  color: var(--blanco);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  transition: transform 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.hero-cta:hover,
+.feature-button:hover,
+.contact-button:hover {
+  background: var(--oliva);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px #263D3530;
+}
+
+.hero-cta span {
+  font-size: 20px;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 55px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.hero-bottom span {
+  font-size: 24px;
+  color: var(--cobre);
+}
+
+/* HERO DERECHO */
+
+.hero-image {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 650px;
+  background: var(--salvia);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-orbit,
+.hero-orbit-inner {
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+.hero-orbit {
+  width: 98%;
+  background: #C3CFB8;
+  transform: translate(12%, 12%);
+}
+
+.hero-orbit-inner {
+  width: 78%;
+  background: var(--arena);
+  transform: translate(12%, 12%);
+}
+
+.hero-photo-placeholder {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  text-align: center;
+  color: var(--verde);
+  animation: flotar 5s ease-in-out infinite;
+}
+
+.hero-photo-placeholder > span {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+
+.hero-photo-placeholder strong {
+  display: block;
+  margin: 28px 0;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 3.3vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.hero-photo-placeholder small {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.hero-sparkle {
+  position: absolute;
+  z-index: 3;
+}
+
+.hero-sparkle-one {
+  top: 12%;
+  right: 10%;
+  color: var(--cobre);
+  font-size: 65px;
+  animation: girar 14s linear infinite;
+}
+
+.hero-sparkle-two {
+  bottom: 18%;
+  left: 10%;
+  color: var(--blanco);
+  font-size: 48px;
+}
+
+.hero-sticker {
+  position: absolute;
+  right: 6%;
+  bottom: 8%;
+  z-index: 4;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--cobre);
+  border: 2px solid var(--verde);
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+  transform: rotate(12deg);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.hero-sticker strong {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.hero-sticker span {
+  margin-top: 8px;
+  font-size: 24px;
+}
+
