@@ -156,37 +156,36 @@ h3 {
   color: var(--cobre);
 }
 
-.nav-button {
+.hero-booking {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  min-height: 52px;
-  padding: 15px 24px;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(100%, 360px);
+  min-height: 58px;
+  margin-bottom: 14px;
+  padding: 16px 24px;
+  border: 1px solid var(--cobre-claro);
+  border-radius: 50px;
   background: var(--verde);
   color: var(--blanco);
-  border-radius: 50px;
-  font-size: 11px;
+  box-shadow: 0 6px 0 rgba(198, 142, 112, 0.75);
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.7px;
-  transition: transform 0.3s ease,
-              background 0.3s ease;
-  font-family: inherit;
-  border: 1px solid var(--cobre-claro);
-  box-shadow: 0 5px 0 rgba(198, 142, 112, 0.55);
+  letter-spacing: 0.8px;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
-.nav-button span {
-  margin-left: 4px;
-  color: var(--cobre-claro);
-  font-size: 19px;
-  line-height: 0.8;
-}
-
-.nav-button:hover {
-  background: var(--oliva);
+.hero-booking:hover {
   transform: translateY(-2px);
-  box-shadow: 0 7px 0 rgba(198, 142, 112, 0.45);
+  background: var(--oliva);
+  box-shadow: 0 8px 0 rgba(198, 142, 112, 0.65);
+}
+
+.hero-booking span {
+  color: var(--cobre-claro);
+  font-size: 21px;
+  line-height: 1;
 }
 
 .menu-toggle {
@@ -395,7 +394,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 28%;
+  object-position: 50% 0%;
 }
 
 .hero-image-caption {
@@ -991,7 +990,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 48%;
+  object-position: 50% 0%;
   transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -1127,7 +1126,7 @@ h3 {
 .specialist-photo-frame {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   border: var(--borde);
   border-radius: var(--radio);
   background: var(--arena);
@@ -1139,7 +1138,8 @@ h3 {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: 50% 0%;
 }
 
 .specialist-content {
@@ -1876,7 +1876,7 @@ h3 {
 
   .specialist-photo-frame {
     min-height: 0;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
   }
 
   .footer {
@@ -1923,22 +1923,6 @@ h3 {
     margin-top: 6px;
     font-size: 6px;
     letter-spacing: 1.35px;
-  }
-
-  .nav-button {
-    display: inline-flex;
-    min-height: 40px;
-    padding: 10px 10px;
-    border-radius: 13px;
-    font-size: 8px;
-    letter-spacing: 0.25px;
-    white-space: nowrap;
-    box-shadow: 0 4px 0 rgba(198, 142, 112, 0.55);
-  }
-
-  .nav-button span {
-    margin-left: 1px;
-    font-size: 16px;
   }
 
   .menu-toggle {
@@ -2006,6 +1990,13 @@ h3 {
     padding: 17px 20px;
     font-size: 10px;
     gap: 15px;
+  }
+
+  .hero-booking {
+    min-height: 56px;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    font-size: 11px;
   }
 
   .hero-benefits {
@@ -2233,7 +2224,7 @@ h3 {
 
   .specialist-photo-frame {
     min-height: 0;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     box-shadow: 7px 7px 0 rgba(198, 142, 112, 0.32);
   }
 
@@ -2394,18 +2385,12 @@ h3 {
 
 @media (max-width: 380px) {
   .header {
-    display: grid;
-    grid-template-areas:
-      "brand menu"
-      "agenda agenda";
-    grid-template-columns: minmax(0, 1fr) 42px;
-    gap: 10px 8px;
+    gap: 8px;
     min-height: 0;
     padding: 12px 12px 14px;
   }
 
   .logo {
-    grid-area: brand;
     min-width: 0;
     font-size: 29px;
   }
@@ -2416,19 +2401,9 @@ h3 {
   }
 
   .menu-toggle {
-    grid-area: menu;
     width: 42px;
     height: 42px;
     margin-left: 0;
-  }
-
-  .nav-button {
-    grid-area: agenda;
-    width: 100%;
-    min-height: 46px;
-    justify-content: center;
-    border-radius: 13px;
-    font-size: 11px;
   }
 }
 
