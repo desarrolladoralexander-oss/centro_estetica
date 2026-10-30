@@ -5,7 +5,7 @@
 ============================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* 00. SELECCIÓN DE TRATAMIENTO PARA RESERVAR */
+    /* 00. SELECCIÓN DE TRATAMIENTO PARA RESERVAR */
 
   const bookingDialog = document.querySelector("#booking-dialog");
 
@@ -67,7 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         date: "",
         time: "",
         name: "",
+        apellido: "",
         phone: "",
+        email: "",
         code: "",
         loading: false,
         sending: false,
@@ -113,39 +115,41 @@ document.addEventListener("DOMContentLoaded", () => {
     async function enviarReserva() {
       st.sending = true;
       st.error = "";
-      st.code = String(Math.floor(1000 + Math.random() * 9000));
       renderAgenda();
-      try {
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({
-            service: st.service,
-            start: `${st.date}T${st.time}:00-05:00`,
-            name: st.name.trim(),
-            phone: st.phone.trim(),
-            code: st.code,
-          }),
-        });
-        const data = await res.json();
-        if (data.ok) {
-          st.confirmed = true;
-        } else {
-          st.error = data.error || "No se pudo reservar. Elige otra hora.";
-          st.time = "";
-          st.sending = false;
-          await loadTimes(st.date);
-          return;
-        }
-      } catch (e) {
-        st.error = "Hubo un problema de conexión. Intenta de nuevo.";
-      }
-      st.sending = false;
-      renderAgenda();
-    }
 
+      const fechaReservada = st.date;
+      const horaReservada = st.time;
+      st.code = String(Math.floor(1000 + Math.random() * 9000));
+      const payload = {
+        service: st.service,
+        start: `${fechaReservada}T${horaReservada}:00-05:00`,
+        name: st.name.trim(),
+        apellido: st.apellido.trim(),
+        phone: st.phone.trim(),
+        email: st.email.trim(),
+        code: st.code,
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+        });
+        st.confirmed = true;
+        renderAgenda();
+      } catch (error) {
+        st.error = "No pudimos enviar la solicitud. Revisa tu conexión e intenta de nuevo.";
+      } finally {
+        st.sending = false;
+        if (!st.confirmed) renderAgenda();
+      }
+    }
     function puedeConfirmar() {
-      return st.date && st.time && st.name.trim() && st.phone.trim() && !st.sending;
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(st.email.trim());
+      return st.date && st.time && st.name.trim() && st.apellido.trim()
+        && st.phone.trim() && emailValido && !st.sending;
     }
 
     function renderAgenda() {
@@ -159,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="rw-ok-sub">Te esperamos en Rueda Centro de Estética</p>
 
             <div class="rw-card">
-              <div class="rw-row"><span>Cliente</span><strong>${escapeHTML(st.name)}</strong></div>
+              <div class="rw-row"><span>Cliente</span><strong>${escapeHTML(st.name)} ${escapeHTML(st.apellido)}</strong></div>
               <div class="rw-row"><span>Servicio</span><strong>${escapeHTML(st.service)}</strong></div>
               <div class="rw-row"><span>Día</span><strong>${dia}</strong></div>
               <div class="rw-row"><span>Hora</span><strong>${fmtTime(st.time)}</strong></div>
@@ -167,8 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="rw-code-box">
               <p>Tu código para cancelar</p>
-              <div class="rw-code">${st.code}</div>
-              <small>Guárdalo. Si no puedes venir, comunícate con el centro para cancelar.</small>
+              ${st.code ? `<div class="rw-code">${escapeHTML(st.code)}</div>` : ""}
+              <small>Correo registrado: ${escapeHTML(st.email)}. Guarda los datos de tu cita.</small>
             </div>
 
             <button type="button" class="rw-btn" data-action="new">Agendar otra cita</button>
@@ -210,15 +214,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ${st.time ? `
           <h4 class="rw-label">Tus datos</h4>
-          <input class="rw-input" id="rw-name" name="name" autocomplete="name" placeholder="Nombre" value="${escapeHTML(st.name)}">
-          <input class="rw-input" id="rw-phone" name="phone" type="tel" autocomplete="tel" placeholder="Teléfono" value="${escapeHTML(st.phone)}">
+          <input class="rw-input" id="rw-name" name="name" autocomplete="given-name" required placeholder="Nombre" value="${escapeHTML(st.name)}">
+          <input class="rw-input" id="rw-apellido" name="apellido" autocomplete="family-name" required placeholder="Apellido" value="${escapeHTML(st.apellido)}">
+          <input class="rw-input" id="rw-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Teléfono" value="${escapeHTML(st.phone)}">
+          <input class="rw-input" id="rw-email" name="email" type="email" autocomplete="email" required placeholder="Correo electrónico" value="${escapeHTML(st.email)}">
         ` : ""}
 
         <button type="button" class="rw-confirm" data-action="confirm" ${puedeConfirmar() ? "" : "disabled"}>
           ${st.sending ? "ENVIANDO..." : "CONFIRMAR CITA"}
         </button>
 
-        ${st.error ? `<div class="rw-msg rw-error">${st.error}</div>` : ""}
+        ${st.error ? `<div class="rw-msg rw-error">${escapeHTML(st.error)}</div>` : ""}
       `;
     }
 
@@ -246,10 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Escribir nombre y teléfono sin volver a dibujar la pantalla
+    // Escribir los datos sin volver a dibujar la pantalla
     agenda.addEventListener("input", (e) => {
       if (e.target.id === "rw-name") st.name = e.target.value;
+      if (e.target.id === "rw-apellido") st.apellido = e.target.value;
       if (e.target.id === "rw-phone") st.phone = e.target.value;
+      if (e.target.id === "rw-email") st.email = e.target.value;
       actualizarBoton();
     });
 
